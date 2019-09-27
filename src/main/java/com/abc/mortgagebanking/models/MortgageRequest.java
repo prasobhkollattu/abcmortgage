@@ -15,9 +15,12 @@ import javax.validation.constraints.*;
  * MortgageRequest
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-09-27T14:27:57.325+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-09-27T16:08:08.190+02:00")
 
 public class MortgageRequest   {
+  @JsonProperty("accountNumber")
+  private String accountNumber = null;
+
   /**
    * Gets or Sets mortgageType
    */
@@ -57,6 +60,26 @@ public class MortgageRequest   {
 
   @JsonProperty("deposit")
   private BigDecimal deposit = null;
+
+  public MortgageRequest accountNumber(String accountNumber) {
+    this.accountNumber = accountNumber;
+    return this;
+  }
+
+  /**
+   * Get accountNumber
+   * @return accountNumber
+  **/
+  @ApiModelProperty(value = "")
+
+
+  public String getAccountNumber() {
+    return accountNumber;
+  }
+
+  public void setAccountNumber(String accountNumber) {
+    this.accountNumber = accountNumber;
+  }
 
   public MortgageRequest mortgageType(MortgageTypeEnum mortgageType) {
     this.mortgageType = mortgageType;
@@ -130,14 +153,15 @@ public class MortgageRequest   {
       return false;
     }
     MortgageRequest mortgageRequest = (MortgageRequest) o;
-    return Objects.equals(this.mortgageType, mortgageRequest.mortgageType) &&
+    return Objects.equals(this.accountNumber, mortgageRequest.accountNumber) &&
+        Objects.equals(this.mortgageType, mortgageRequest.mortgageType) &&
         Objects.equals(this.propertyCost, mortgageRequest.propertyCost) &&
         Objects.equals(this.deposit, mortgageRequest.deposit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(mortgageType, propertyCost, deposit);
+    return Objects.hash(accountNumber, mortgageType, propertyCost, deposit);
   }
 
   @Override
@@ -145,6 +169,7 @@ public class MortgageRequest   {
     StringBuilder sb = new StringBuilder();
     sb.append("class MortgageRequest {\n");
     
+    sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    mortgageType: ").append(toIndentedString(mortgageType)).append("\n");
     sb.append("    propertyCost: ").append(toIndentedString(propertyCost)).append("\n");
     sb.append("    deposit: ").append(toIndentedString(deposit)).append("\n");

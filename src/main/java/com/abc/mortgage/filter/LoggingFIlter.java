@@ -21,8 +21,7 @@ import org.springframework.stereotype.Component;
  * @author PRASOBH KOLLATTU
  *
  */
-@Component
-@Order(1)
+
 public class LoggingFIlter implements Filter {
 
 	private final static Logger LOG = LoggerFactory.getLogger(LoggingFIlter.class);

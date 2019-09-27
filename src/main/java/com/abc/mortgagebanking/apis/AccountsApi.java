@@ -30,7 +30,7 @@ import javax.validation.constraints.*;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-09-27T14:27:57.325+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-09-27T16:08:08.190+02:00")
 
 @Api(value = "accounts", description = "the accounts API")
 public interface AccountsApi {
@@ -49,7 +49,7 @@ public interface AccountsApi {
         return getRequest().map(r -> r.getHeader("Accept"));
     }
 
-    @ApiOperation(value = "get user accounts", nickname = "createMortgage", notes = "", response = Mortgage.class, tags={ "accounts", })
+    @ApiOperation(value = "create mortgage account for user", nickname = "createMortgage", notes = "", response = Mortgage.class, tags={ "accounts", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "successful", response = Mortgage.class),
         @ApiResponse(code = 400, message = "The given input has not the right format"),

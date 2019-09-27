@@ -2,10 +2,9 @@ package com.abc.mortgage;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * Application entry point
@@ -14,14 +13,16 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  *
  */
 @SpringBootApplication
-@EnableCaching
-@EnableJpaRepositories("com.abc.mortgage.dao")
-@ComponentScan("com.abc.mortgage")
-@EntityScan("com.abc.mortgage.dao.entity")
+@ComponentScan({ "com.abc.mortgage", "com.abc.mortgage.services", "com.abc.mortgage.contollers.mapper" })
 public class AccountsApp {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AccountsApp.class, args);
+	}
+
+	@Bean
+	public RestTemplate getRestTemplate() {
+		return new RestTemplate();
 	}
 
 }
