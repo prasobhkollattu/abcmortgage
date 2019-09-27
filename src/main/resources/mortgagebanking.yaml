@@ -1,0 +1,148 @@
+swagger: '2.0'
+info:
+  description: In order to inform borrowers about the final repayment schedule, thi service will doe pre-calculated repayment plans throughout the lifetime of a loan  This spec defines the ` ABCMortageBanking`. Consumers  should statisfy service contract to access the APIs.Please refer <b>request</b> and <b>response</b> section of each service to identify the contract.
+  version: 1.0.0
+  title: ABCMortageBanking
+  termsOfService: http://company.io/terms/
+  contact:
+    email: info@company.com
+host: localhost:8080
+basePath: /abcmortageBbnking/v1
+tags:
+- name: Accounts
+  description: Services to handle user accounts
+  externalDocs:
+    description: Find out more
+    url: http://swagger.io
+
+schemes:
+- http
+- https
+paths:
+  /accounts/{searchParam}:
+    get:
+      tags:
+      - accounts
+      summary: get user accounts
+      description: ''
+      operationId: getAccounts
+  
+      produces:
+      - application/json
+    
+      parameters:
+      
+      - in: path
+        type: string
+        name: searchParam 
+        required: true
+     
+      responses:
+        200:
+          description: successful
+          schema:
+            $ref: '#/definitions/Accounts'
+        400:
+          description: The given input has not the right format
+        401:
+          description: Unauthorized
+        500:
+          description: Internal server error
+          
+  /accounts/{acountNumber}/mortgage:
+    post:
+      tags:
+      - accounts
+      summary: get user accounts
+      description: ''
+      operationId: createMortgage
+  
+      produces:
+      - application/json
+    
+      parameters:
+      
+      - in: path
+        name: acountNumber
+        type: string
+        required: true
+        
+      - in: body
+        name: body
+        description: ' Mortgage details'
+        required: true
+        schema:
+          $ref: '#/definitions/MortgageRequest'
+      responses:
+        200:
+          description: successful
+          schema:
+            $ref: '#/definitions/Mortgage'
+        400:
+          description: The given input has not the right format
+        401:
+          description: Unauthorized
+        500:
+          description: Internal server error
+          
+securityDefinitions:
+  BasicAuth:
+    type: basic
+definitions:
+  Accounts:
+    type: object
+    properties:
+      accounts:
+        type: array
+        items:
+          $ref: '#/definitions/Account'
+  Account:
+    properties:
+      acountNumber:
+        type: string
+      acountType:
+        type: string
+      customerId:
+        type: string
+      customerName:
+        type: string
+      dob:
+        type: string
+      gender:
+        type: string
+      availableBalance:
+        type: string
+      lastTransactionDate:
+        type: string
+      mortgages:
+        type: array
+        items:
+          $ref: '#/definitions/Mortgage'
+        
+        
+  Mortgage:
+    properties:
+      acountNumber:
+        type: string
+     
+  MortgageRequest:
+    properties:
+      mortgageType:
+        type: string
+        enum: [Savimgs, Mortgage]
+      propertyCost:
+        type: number
+      deposit:
+        type: number
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+  
