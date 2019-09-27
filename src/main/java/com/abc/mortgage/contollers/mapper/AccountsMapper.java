@@ -20,11 +20,11 @@ public class AccountsMapper {
 		if (Optional.ofNullable(solrSearchResponse).isPresent()) {
 			solrSearchResponse.getResponse().getDocs().stream().forEach(doc -> {
 				Account account = new Account();
-
-				account.setAcountNumber("");
+				String custId = String.valueOf(doc.getCustomerNumber().get(0));
+				account.setAcountNumber(accountsCustomerIds.get(custId));
 				account.setAcountType("");
 				account.setAvailableBalance("");
-				account.setCustomerId(String.valueOf(doc.getCustomerNumber().get(0)));
+				account.setCustomerId(custId);
 				account.setCustomerName(doc.getFirstName().get(0) + " " + doc.getName().get(0));
 				account.setDob(doc.getBirthDate().get(0));
 				account.setGender("");
