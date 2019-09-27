@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.abc.mortgage.exceptions.PlanGeneratorException;
+import com.abc.mortgage.exceptions.MortageBankingException;
 import com.abc.mortgage.exceptions.models.ExceptionResponse;
 import com.abc.mortgage.utils.Messages;
 
@@ -24,8 +24,8 @@ import com.abc.mortgage.utils.Messages;
 @RestControllerAdvice
 public class ExceptionHandlerControllerAdvice {
 
-	@ExceptionHandler(PlanGeneratorException.class)
-	public ExceptionResponse handleBootAppServiceException(final PlanGeneratorException exception,
+	@ExceptionHandler(MortageBankingException.class)
+	public ExceptionResponse handleBootAppServiceException(final MortageBankingException exception,
 			final HttpServletRequest request, final HttpServletResponse res) {
 
 		ExceptionResponse error = exception.getError();

@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 import com.abc.mortgage.exceptions.models.ExceptionResponse;
 
-public class PlanGeneratorException extends RuntimeException {
+public class MortageBankingException extends RuntimeException {
 
 	private ExceptionResponse errorResp = null;
 	private int errorCode;
@@ -22,7 +22,7 @@ public class PlanGeneratorException extends RuntimeException {
 	 */
 	private static final long serialVersionUID = -8915899321825365533L;
 
-	public PlanGeneratorException(String msg, String error, int erroCode) {
+	public MortageBankingException(String msg, String error, int erroCode) {
 		errorResp = new ExceptionResponse();
 		this.errorCode = erroCode;
 		errorResp.setMessage(msg);

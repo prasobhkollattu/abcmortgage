@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import com.abc.mortgage.utils.Messages;
 
 @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-public class InternalServerError extends PlanGeneratorException {
+public class InternalServerError extends MortageBankingException {
 	private static final long serialVersionUID = 8481507757899949243L;
 
 	public InternalServerError(String msg) {

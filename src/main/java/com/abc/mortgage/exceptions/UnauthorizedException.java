@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import com.abc.mortgage.utils.Messages;
 
 @ResponseStatus(HttpStatus.UNAUTHORIZED)
-public class UnauthorizedException extends PlanGeneratorException {
+public class UnauthorizedException extends MortageBankingException {
 	private static final long serialVersionUID = 8481507757899949243L;
 
 	public UnauthorizedException(String msg) {
